@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Canada Summary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Canada Summary</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-key-updates></app-key-updates>
+
+  <div *ngIf="latestOntarioData" style="margin-top: 20px;">
+    <h2>Ontario COVID-19 Data</h2>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Date: {{ latestOntarioData['Reported Date'] | date:'yyyy-MM-dd' }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Total Cases:</strong> {{ latestOntarioData['Total Cases'] ?? 'N/A' }}</p>
+        <p><strong>Resolved:</strong> {{ latestOntarioData['Resolved'] ?? 'N/A' }}</p>
+        <p><strong>Deaths:</strong> {{ latestOntarioData['Deaths'] ?? 'N/A' }}</p>
+        <p><strong>Hospitalized:</strong> {{ latestOntarioData['Number of patients hospitalized with COVID-19'] ?? 'N/A' }}</p>
+        <p><strong>In ICU:</strong> {{ latestOntarioData['Number of patients in ICU due to COVID-19'] ?? 'N/A' }}</p>
+        <p><strong>On Ventilator:</strong> {{ latestOntarioData['Number of patients in ICU on a ventilator due to COVID-19'] ?? 'N/A' }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

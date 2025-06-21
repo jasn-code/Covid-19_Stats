@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ontario COVID-19</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="selectedRecord">
+    <ion-card-header>
+      <ion-card-title>Status for {{ selectedRecord['Reported Date'] | date:'yyyy-MM-dd' }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Total Cases:</strong> {{ selectedRecord['Total Cases'] ?? 'N/A' }}</p>
+      <p><strong>Resolved:</strong> {{ selectedRecord['Resolved'] ?? 'N/A' }}</p>
+      <p><strong>Deaths:</strong> {{ selectedRecord['Deaths'] ?? 'N/A' }}</p>
+      <p><strong>Hospitalized:</strong> {{ selectedRecord['Number of patients hospitalized with COVID-19'] ?? 'N/A' }}</p>
+      <p><strong>In ICU:</strong> {{ selectedRecord['Number of patients in ICU due to COVID-19'] ?? 'N/A' }}</p>
+      <p><strong>On Ventilator:</strong> {{ selectedRecord['Number of patients in ICU on a ventilator due to COVID-19'] ?? 'N/A' }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="message && selectedDate">
+    <ion-card-header>
+      <ion-card-title>Message From Detail Page</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Date:</strong> {{ selectedDate | date:'yyyy-MM-dd' }}</p>
+      <p><strong>Message:</strong> {{ message }}</p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-list>
+    <ion-item *ngFor="let record of ontarioData" button (click)="goToDetail(record)">
+      <ion-label>
+        {{ record['Reported Date'] | date:'yyyy-MM-dd' }} - Total Cases: {{ record['Total Cases'] ?? 'N/A' }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>COVID Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="detail">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Date: {{ detail['Reported Date'] | date:'yyyy-MM-dd' }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Total Cases:</strong> {{ detail['Total Cases'] ?? 'N/A' }}</p>
+      <p><strong>Resolved:</strong> {{ detail['Resolved'] ?? 'N/A' }}</p>
+      <p><strong>Deaths:</strong> {{ detail['Deaths'] ?? 'N/A' }}</p>
+      <p><strong>Hospitalized:</strong> {{ detail['Number of patients hospitalized with COVID-19'] ?? 'N/A' }}</p>
+      <p><strong>In ICU:</strong> {{ detail['Number of patients in ICU due to COVID-19'] ?? 'N/A' }}</p>
+      <p><strong>On Ventilator:</strong> {{ detail['Number of patients in ICU on a ventilator due to COVID-19'] ?? 'N/A' }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-label position="stacked">Enter a message</ion-label>
+    <ion-textarea [(ngModel)]="userMessage"></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="block" (click)="sendMessage()">Send Message</ion-button>
+  <ion-button expand="block" color="medium" (click)="goBack()">Back</ion-button>
+</ion-content>

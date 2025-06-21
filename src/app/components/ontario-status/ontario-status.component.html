@@ -1,0 +1,29 @@
+<ion-card *ngIf="canadaSummary; else noData">
+  <ion-card-header>
+    <ion-card-title>Canada COVID-19 Summary</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p><strong>Cases (last 7 days):</strong> {{ canadaSummary.casesLast7Days }}</p>
+    <p><strong>Total Cases:</strong> {{ canadaSummary.totalCases }}</p>
+    <p><strong>Active Cases:</strong> {{ canadaSummary.activeCases }}</p>
+    <p><strong>Recovered:</strong> {{ canadaSummary.recovered }}</p>
+    <p><strong>Deaths (last 7 days):</strong> {{ canadaSummary.deathsLast7Days }}</p>
+    <p><strong>Total Deaths:</strong> {{ canadaSummary.totalDeaths }}</p>
+    <p><strong>Tested Today:</strong> {{ canadaSummary.testedToday }}</p>
+    <p><strong>Total Tested:</strong> {{ canadaSummary.totalTested }}</p>
+    <p><strong>Percent Positive:</strong> {{ canadaSummary.percentPositive }}</p>
+    <p><strong>People Tested Per Million:</strong> {{ canadaSummary.peopleTestedPerMillion }}</p>
+  </ion-card-content>
+</ion-card>
+
+<ng-template #noData>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>No Data Available</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Canada COVID-19 data could not be found.</p>
+    </ion-card-content>
+  </ion-card>
+</ng-template>
