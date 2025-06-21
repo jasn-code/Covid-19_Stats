@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { CanadaSummaryPageRoutingModule } from './canada-summary-routing.module';
 
 import { CanadaSummaryPage } from './canada-summary.page';
-import { ComponentsModule } from 'src/app/components/components.module';  // Import here
+import { ComponentsModule } from 'src/app/components/components.module'; 
 
 @NgModule({
   imports: [
